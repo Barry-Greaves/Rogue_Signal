@@ -35,5 +35,8 @@
     "youtube.com/@RogueSignalAI",
     "github.com/Barry-Greaves/Rogue_Signal"
   ],
-  "website_url": null
+  "website_url": null,
+  "episodes": {
+    "000": "https://www.youtube.com/shorts/bSLASWbmr1Y"
+  }
 }

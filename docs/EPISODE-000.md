@@ -1,7 +1,7 @@
 ---
 type: episode
 episode_id: episode-000
-status: rendered-draft
+status: published
 duration_seconds: 30
 tags: [episode, launch]
 ---
@@ -63,6 +63,15 @@ Actual GitHub URL: **https://github.com/Barry-Greaves/Rogue_Signal** (created 24
 - [x] Spoken words match the approved script.
 - [x] Public repo exists and describes current capabilities honestly.
 - [x] Call to action points to a tested, available link.
-- [ ] Captions and URL are readable on a phone.
+- [ ] Captions and URL are readable on a phone. **Not in the published version:** no burned-in captions or end card, so YouTube auto-captions only. Add both from the next episode.
 - [x] Export is 30 seconds with no added intro/outro length.
-- [ ] Video and metadata approved for publication.
+- [x] Video and metadata approved for publication (Barry, 24 Sep 2026).
+
+## Publication
+
+- **Published:** 24 September 2026, https://www.youtube.com/shorts/bSLASWbmr1Y (confirmed public and attached to @RogueSignalAI).
+- **Title:** Introducing Rogue Signal: one AI story, 30 seconds, sources included
+- **File:** `runs/ep000/ep000-1080x1920.mp4`. 1080×1920, 30.000 s, 24 fps, H.264 + AAC 48 kHz, upscaled from the 768×1344 renders with Lanczos.
+- **Disclosure:** the description names the AI-generated presenter and Barry as creator/editor. Barry was advised to set "Altered or synthetic content" to Yes.
+- **Not included:** captions, logo, end-card links. These are planned for the next episodes.
+- **Note:** on upload, YouTube showed a "Congrats on 1,000 subs!" notification. It's almost certainly a glitch on a brand-new channel. Check the real count in YouTube Studio.
