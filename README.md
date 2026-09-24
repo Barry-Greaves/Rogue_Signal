@@ -1,6 +1,6 @@
 # Rogue Signal
 
-A local-first pipeline for daily AI news videos, with optional Hermes orchestration, Claude writing/review, OpenAI text generation, and presenter clips rendered locally by MiniMax H3 in ComfyUI. Project location: `C:\Users\Pc User\OneDrive\Documents\Agentic AI News`.
+A local-first pipeline for daily AI news videos, with optional Hermes orchestration, Claude writing/review, OpenAI text generation, and presenter clips rendered locally by MiniMax H3 in ComfyUI. 
 
 **@RogueSignalAI · AI news. Human perspective.**
 
