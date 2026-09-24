@@ -38,5 +38,11 @@
   "website_url": null,
   "episodes": {
     "000": "https://www.youtube.com/shorts/bSLASWbmr1Y"
+  },
+  "captions": {
+    "style": "subtle subtitles",
+    "font": "BDRmono",
+    "font_file": null,
+    "decided": "2026-09-24"
   }
 }
