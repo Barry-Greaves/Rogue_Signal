@@ -49,7 +49,12 @@ This is a mirror of the Obsidian note `Episodes/Episode 000 - Introducing the Pr
 
 ## Repository reference
 
-Actual GitHub URL: **https://github.com/Barry-Greaves/Rogue_Signal** (created 24 September 2026, MIT). Actual channel project link: **pending**. Do not render placeholder URLs. Clip B says "on GitHub", so the repository must exist before publishing.
+Actual GitHub URL: **https://github.com/Barry-Greaves/Rogue_Signal** (created 24 September 2026, MIT). YouTube channel: **https://www.youtube.com/@RogueSignalAI** (channel ID UCUg91teBlNebH1IkjlIVRbQ). Both links checked on 24 September 2026.
+
+**On-screen call to action (decided):** show both links as text added in the edit, over the last seconds of clip B:
+
+- `youtube.com/@RogueSignalAI`
+- `github.com/Barry-Greaves/Rogue_Signal` Do not render placeholder URLs. Clip B says "on GitHub", so the repository must exist before publishing.
 
 ## Review
 
@@ -57,7 +62,7 @@ Actual GitHub URL: **https://github.com/Barry-Greaves/Rogue_Signal** (created 24
 - [x] Same presenter and voice across the cut.
 - [x] Spoken words match the approved script.
 - [x] Public repo exists and describes current capabilities honestly.
-- [ ] Call to action points to a tested, available link.
+- [x] Call to action points to a tested, available link.
 - [ ] Captions and URL are readable on a phone.
 - [x] Export is 30 seconds with no added intro/outro length.
 - [ ] Video and metadata approved for publication.

@@ -14,10 +14,26 @@
     "decided": "2026-09-24"
   },
   "render": {
-    "draft": {"width": 480, "height": 864},
-    "production": {"width": 768, "height": 1344},
-    "delivery": {"width": 1080, "height": 1920, "fps": 24}
+    "draft": {
+      "width": 480,
+      "height": 864
+    },
+    "production": {
+      "width": 768,
+      "height": 1344
+    },
+    "delivery": {
+      "width": 1080,
+      "height": 1920,
+      "fps": 24
+    }
   },
   "github_url": "https://github.com/Barry-Greaves/Rogue_Signal",
+  "youtube_url": "https://www.youtube.com/@RogueSignalAI",
+  "youtube_channel_id": "UCUg91teBlNebH1IkjlIVRbQ",
+  "end_card": [
+    "youtube.com/@RogueSignalAI",
+    "github.com/Barry-Greaves/Rogue_Signal"
+  ],
   "website_url": null
 }
