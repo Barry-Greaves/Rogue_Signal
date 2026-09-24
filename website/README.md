@@ -14,7 +14,7 @@ Open http://127.0.0.1:8765. Stop the server with Ctrl+C.
 
 ## Publishing
 
-The deployable directory is `website/`. It can be served by a static hosting provider. Adding these files to GitHub does not enable website hosting; no live website deployment is configured here.
+The deployable directory is `website/`. `.github/workflows/pages.yml` publishes it to GitHub Pages (https://barry-greaves.github.io/Rogue_Signal/) whenever `website/` changes on `main`, or when run by hand from the Actions tab. The repository Pages setting must use "GitHub Actions" as its source.
 
 ## Updating content
 
