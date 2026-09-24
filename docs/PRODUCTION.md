@@ -51,14 +51,17 @@ A full episode is two production clips, about 30 minutes of GPU time plus any re
 - If a line is noticeably shorter than the clip, H3 may repeat words to fill the time. The timeline prompt (`[0s-12s] says this line exactly once` / `[12s-15s] silent smile`) reduces this, and the word check catches it.
 - Write numbers and names the way they should be spoken, for example "Rogue Signal AI", not "RogueSignalAI".
 
-## Join
+## Join and upscale to 1080×1920
 
 ```powershell
-ffmpeg -i A/clip.mp4 -i B/clip.mp4 -filter_complex "[0:v]trim=end=15,setpts=PTS-STARTPTS[v0];[0:a]atrim=end=15,asetpts=PTS-STARTPTS[a0];[1:v]trim=end=15,setpts=PTS-STARTPTS[v1];[1:a]atrim=end=15,asetpts=PTS-STARTPTS[a1];[v0][a0][v1][a1]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -c:v libx264 -crf 16 -preset slow -r 24 -c:a aac -b:a 192k cut.mp4
+ffmpeg -i A/clip.mp4 -i B/clip.mp4 -filter_complex "[0:v]trim=end=15,setpts=PTS-STARTPTS[v0];[0:a]atrim=end=15,asetpts=PTS-STARTPTS[a0];[1:v]trim=end=15,setpts=PTS-STARTPTS[v1];[1:a]atrim=end=15,asetpts=PTS-STARTPTS[a1];[v0][a0][v1][a1]concat=n=2:v=1:a=1[cv][ca];[cv]scale=-2:1920:flags=lanczos,crop=1080:1920,unsharp=5:5:0.35:5:5:0,setsar=1,format=yuv420p[v];[ca]aresample=48000[a]" -map "[v]" -map "[a]" -c:v libx264 -crf 16 -preset slow -r 24 -c:a aac -b:a 192k -movflags +faststart episode-1080x1920.mp4
 ```
 
-H3 outputs 362 frames (15.083 s), so each clip is trimmed to exactly 15 s. The result is 30.000 s.
+- H3 outputs 362 frames (15.083 s), so each clip is trimmed to exactly 15 s. The result is 30.000 s.
+- 768×1344 is 4:7, slightly wider than 9:16. The command scales to 1920 high (1097 wide), then trims 8 px from each side to get 1080.
+- The Lanczos scale plus light sharpening takes about 15 s for an episode and adds no artifacts. It doesn't add detail. An AI video upscaler (SeedVR2 nodes are built into ComfyUI 0.37; the model isn't downloaded) could be tested later.
+- Output: H.264 CRF 16, AAC 48 kHz, `faststart`, about 28 MB for 30 s.
 
 ## Not yet built
 
-Captions, the logo and source overlays, upscaling to 1080×1920, a single `episode` command covering every step, and YouTube upload.
+Captions, the logo, source and end-card overlays, a single `episode` command covering every step, and YouTube upload.
