@@ -14,7 +14,11 @@ Target: one daily 30-second Short using two 15-second MiniMax H3 renders. See [b
 - **Research and drafting.** RSS/Atom collection with a rolling 24-hour UTC window, URL deduplication and per-feed failure reporting. Optional OpenAI or Claude script drafts.
 - **Offline tests.** Standard-library tests cover research, graph building and the word check. No GPU is needed.
 
-Not built yet: captions and overlays, a single command for a whole episode, scheduling and YouTube upload. No news episode has been produced; Episode 000 is an unpublished draft.
+Not built yet: captions and overlays, a single command for a whole episode, scheduling and YouTube upload. No news episode has been produced; Episode 000 is a [published launch trial](https://www.youtube.com/shorts/bSLASWbmr1Y).
+
+## Project website
+
+The [Rogue Signal website](website/README.md) includes the presenter, launch video link, production workflow and project status. Its static files are in `website/`; see the website README for local preview instructions. Website hosting is not yet configured.
 
 ## Quick start
 
