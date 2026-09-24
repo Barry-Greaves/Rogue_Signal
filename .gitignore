@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+runs/
+assets/private/
+credentials/
+*.safetensors
+*.ckpt
+
+# Font reference images: kept private (font licence unclear, one duplicate)
+Images/
+Rogue Signal Logo Font -.png
+assets/Rogue Signal Font BDRmono 2006.png

@@ -1,0 +1,23 @@
+{
+  "channel_name": "Rogue Signal",
+  "handle": "@RogueSignalAI",
+  "tagline": "AI news. Human perspective.",
+  "episode_duration_seconds": 30,
+  "clip_count": 2,
+  "clip_duration_seconds": 15,
+  "creator": "Barry Greaves",
+  "presenter_reference": "assets/presenter-reference-01.png",
+  "presenter_reference_close": "assets/presenter-reference-01-close.png",
+  "voice": {
+    "route": "h3_native",
+    "prompt": "a clear, warm female voice with a soft British accent, at a calm, measured pace",
+    "decided": "2026-09-24"
+  },
+  "render": {
+    "draft": {"width": 480, "height": 864},
+    "production": {"width": 768, "height": 1344},
+    "delivery": {"width": 1080, "height": 1920, "fps": 24}
+  },
+  "github_url": "https://github.com/Barry-Greaves/Rogue_Signal",
+  "website_url": null
+}

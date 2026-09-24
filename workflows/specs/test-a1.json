@@ -1,0 +1,9 @@
+{
+  "name": "test-a1",
+  "group": "tests",
+  "image": "assets/presenter-reference-01.png",
+  "seconds": 8,
+  "seed": 1,
+  "line": "Hello, and welcome to Rogue Signal. This is a short studio voice test.",
+  "prompt": "Photorealistic vertical 9:16 medium close-up of the woman in <Picture 1>, a news presenter with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt and a small lapel microphone, in a dim graphite studio with a warm amber bulb on the left and a teal light tube on the right. Static locked-off camera at eye level, shallow depth of field. She looks directly into the lens and delivers one line calmly, with natural lip movement, small head movements and occasional blinks. Her hands stay out of frame. She speaks in a clear, warm female voice with a soft British accent and says: \"{line}\" When the line ends she stops talking, closes her mouth and holds a gentle smile. Quiet studio room tone only: no music, no other voices, no on-screen text, no subtitles."
+}
