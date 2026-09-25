@@ -1,0 +1,10 @@
+{
+  "name": "ep001-b",
+  "group": "ep001",
+  "seconds": 15,
+  "seed": 1,
+  "prompt": "Photorealistic vertical 9:16 medium close-up of the woman in <Picture 1>, a news presenter with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt and a small lapel microphone, in a dim graphite studio with a warm amber bulb on the left and a teal light tube on the right. Static locked-off camera at eye level, shallow depth of field. She looks directly into the lens with small natural head movements and occasional blinks. Her hands stay out of frame. She speaks in a clear, warm female voice with a soft British accent, at a calm, measured pace.\n\nTimeline:\n[0s-12s] She says this line exactly once, word for word: \"{line}\"\n[12s-15s] She has finished. She stays silent with her mouth closed, holding a gentle smile and steady eye contact.\n\nShe speaks the line only once, with no extra, repeated or changed words. Quiet studio room tone only: no music, no other voices, no on-screen text, no subtitles.",
+  "image": "assets/presenter-reference-01-close.png",
+  "line": "Anthropic calls it ART. Its DNA-repeat pattern resembles CRISPR, but its function is unknown. The unreviewed preprint shows the array is expressed as RNA, yet the enzyme hasn't been shown active.",
+  "spoken": "Anthropic calls it Art. Its DNA-repeat pattern resembles CRISPR, but its function is unknown. The unreviewed preprint shows the array is expressed as RNA, yet the enzyme hasn't been shown active."
+}

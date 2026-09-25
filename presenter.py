@@ -11,7 +11,8 @@ Spec fields (paths are relative to the project folder):
     group           runs/ subfolder, default "renders"
     image           presenter reference image (<Picture 1>)
     prompt          H3 prompt; {line} is replaced by the "line" field
-    line            exact words to be spoken (recorded in the manifest)
+    line            approved words, as written (word check and captions use this)
+    spoken          optional respelling for the prompt only, e.g. "Art" for "ART"
     seconds         clip length; rounded up to H3's 17k+5 frame grid
     width, height   generation size, multiples of 32 (default 480x864)
     turbo           4-step turbo LoRA (default true)
@@ -97,7 +98,7 @@ def build_graph(spec, image_name, narration_name=None, voice_name=None):
         "img": {"class_type": "LoadImage", "inputs": {"image": image_name}},
         "r2v": {"class_type": "MiniMaxH3ReferenceToVideo", "inputs": {
             "clip": ["clip", 0], "vae": ["vae", 0], "audio_vae": ["avae", 0],
-            "prompt": spec["prompt"].replace("{line}", spec["line"]),
+            "prompt": spec["prompt"].replace("{line}", spec.get("spoken") or spec["line"]),
             "width": spec["width"], "height": spec["height"], "length": length,
             "ref_image_size": spec["ref_image_size"], "ref_images.ref_image_0": ["img", 0]}},
     }

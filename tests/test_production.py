@@ -34,6 +34,12 @@ class PresenterGraphTests(unittest.TestCase):
         self.assertEqual(graph["sigmas"]["inputs"]["steps"], 4)
         self.assertEqual(graph["guider"]["inputs"]["model"], ["lora", 0])
 
+    def test_spoken_respelling_only_changes_the_prompt(self):
+        spec = self.spec(line="Anthropic calls it ART.", spoken="Anthropic calls it Art.")
+        graph, _ = presenter.build_graph(spec, "img.png")
+        self.assertEqual(graph["r2v"]["inputs"]["prompt"], "Say: \"Anthropic calls it Art.\"")
+        self.assertEqual(spec["line"], "Anthropic calls it ART.")
+
     def test_narration_and_voice_reference_are_wired_separately(self):
         graph, _ = presenter.build_graph(self.spec(turbo=False), "img.png", "narr.wav", "voice.wav")
         self.assertEqual(graph["guide"]["inputs"]["audio"], ["narr", 0])
