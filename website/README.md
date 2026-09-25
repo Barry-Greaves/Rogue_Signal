@@ -20,6 +20,6 @@ The deployable directory is `website/`. `.github/workflows/pages.yml` publishes 
 
 Update the episode block in `index.html` when a new Short is published, and keep the build-status section accurate. Source publication dates belong in episode records even when narration omits them.
 
-The current page links to the Episode 000 launch trial, the YouTube channel and this repository. It contains no analytics or embedded YouTube player. Google Fonts load externally with local sans-serif fallbacks.
+The current page links to the Episode 000 launch trial, the YouTube channel and this repository. It contains no site analytics. Episode 001 includes a YouTube privacy-enhanced embed, which contacts YouTube; visitors can also follow a direct YouTube link. Google Fonts load externally with local sans-serif fallbacks.
 
 The supplied logo and fictional presenter artwork are not covered by the repository's MIT code licence. See the repository licence and asset notes before reusing them.
