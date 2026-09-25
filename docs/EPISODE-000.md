@@ -73,5 +73,5 @@ Actual GitHub URL: **https://github.com/Barry-Greaves/Rogue_Signal** (created 24
 - **Title:** Introducing Rogue Signal: one AI story, 30 seconds, sources included
 - **File:** `runs/ep000/ep000-1080x1920.mp4`. 1080×1920, 30.000 s, 24 fps, H.264 + AAC 48 kHz, upscaled from the 768×1344 renders with Lanczos.
 - **Disclosure:** the description names the AI-generated presenter and Barry as creator/editor. Barry was advised to set "Altered or synthetic content" to Yes.
-- **Not included:** captions, logo, end-card links. Barry decided on 24 Sep that this video doesn't need them. The text layer (BDRmono subtle subtitles) starts with the next episode.
+- **Not included:** captions, logo, end-card links. Barry decided on 24 Sep that this video doesn't need them. The text layer (DM Sans subtle subtitles) starts with the next episode.
 - **Note:** on upload, YouTube showed a "Congrats on 1,000 subs!" notification. It's almost certainly a glitch on a brand-new channel. Check the real count in YouTube Studio.

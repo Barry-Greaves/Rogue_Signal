@@ -37,12 +37,13 @@
   ],
   "website_url": "https://roguesignal.news",
   "episodes": {
-    "000": "https://www.youtube.com/shorts/bSLASWbmr1Y"
+    "000": "https://www.youtube.com/shorts/bSLASWbmr1Y",
+    "001": "https://www.youtube.com/shorts/i9tvaSYeSaY"
   },
   "captions": {
     "style": "subtle subtitles",
-    "font": "BDRmono",
-    "font_file": null,
-    "decided": "2026-09-24"
+    "font": "DM Sans",
+    "font_file": "assets/fonts/DMSans-Variable.ttf",
+    "decided": "2026-09-25"
   }
 }
