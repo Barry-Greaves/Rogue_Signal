@@ -18,7 +18,7 @@ Not built yet: captions and overlays, a single command for a whole episode, sche
 
 ## Project website
 
-The Rogue Signal website is live at **https://barry-greaves.github.io/Rogue_Signal/**. It shows the presenter, the launch video link, the production workflow and the project status. Its static files are in `website/` and deploy automatically to GitHub Pages; see the [website README](website/README.md) for local preview.
+The Rogue Signal website is live at **https://roguesignal.news**. It shows the presenter, the launch video link, the production workflow and the project status. Its static files are in `website/` and deploy automatically to GitHub Pages; see the [website README](website/README.md) for local preview.
 
 ## Quick start
 
