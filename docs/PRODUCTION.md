@@ -51,17 +51,24 @@ A full episode is two production clips, about 30 minutes of GPU time plus any re
 - If a line is noticeably shorter than the clip, H3 may repeat words to fill the time. The timeline prompt (`[0s-12s] says this line exactly once` / `[12s-15s] silent smile`) reduces this, and the word check catches it.
 - Write numbers and names the way they should be spoken, for example "Rogue Signal AI", not "RogueSignalAI".
 
-## Join and upscale to 1080×1920
+## Join: assemble.py (any number of clips)
 
 ```powershell
-ffmpeg -i A/clip.mp4 -i B/clip.mp4 -filter_complex "[0:v]trim=end=15,setpts=PTS-STARTPTS[v0];[0:a]atrim=end=15,asetpts=PTS-STARTPTS[a0];[1:v]trim=end=15,setpts=PTS-STARTPTS[v1];[1:a]atrim=end=15,asetpts=PTS-STARTPTS[a1];[v0][a0][v1][a1]concat=n=2:v=1:a=1[cv][ca];[cv]scale=-2:1920:flags=lanczos,crop=1080:1920,unsharp=5:5:0.35:5:5:0,setsar=1,format=yuv420p[v];[ca]aresample=48000[a]" -map "[v]" -map "[a]" -c:v libx264 -crf 16 -preset slow -r 24 -c:a aac -b:a 192k -movflags +faststart episode-1080x1920.mp4
+python assemble.py full  --clips runs/ep002/a runs/ep002/b runs/ep002/c --out runs/ep002/ep002-1080x1920.mp4
+python assemble.py split --clips runs/ep002/a runs/ep002/b runs/ep002/c --panels p1.png p2.png p3.png p4.png p5.png p6.png --out runs/ep002/ep002-split.mp4
 ```
 
-- H3 outputs 362 frames (15.083 s), so each clip is trimmed to exactly 15 s. The result is 30.000 s.
-- 768×1344 is 4:7, slightly wider than 9:16. The command scales to 1920 high (1097 wide), then trims 8 px from each side to get 1080.
-- The Lanczos scale plus light sharpening takes about 15 s for an episode and adds no artifacts. It doesn't add detail. An AI video upscaler (SeedVR2 nodes are built into ComfyUI 0.37; the model isn't downloaded) could be tested later.
-- Output: H.264 CRF 16, AAC 48 kHz, `faststart`, about 28 MB for 30 s.
+- **Trimming:** each clip is cut to exactly 15 s (H3 renders 362 frames, 15.083 s), so N clips give N × 15 s. The 3-clip test came out at 45.000 s, 1,080 frames.
+- **full:** presenter full frame. 768×1344 is 4:7, so the script crops the largest 9:16 area (`--crop-y` sets the vertical offset) and scales it to 1080×1920 with Lanczos plus light sharpening.
+- **split:** presenter panel 1080×1080 on top (a 992×992 square render passes through whole) and article panels 1080×840 below.
+  - Panels are `file` or `file@start_seconds` and switch independently of the clip cuts. Without times they're spread evenly: 6 panels over 45 s is one every 7.5 s.
+  - `--panel-scale 0.85` (the default) keeps article text clear of YouTube's right-hand buttons.
+  - `--panel-top`, `--panel-x` and `--top-height` adjust the margins.
+  - Keep key text in the top ~560 px of the panel. YouTube's title and channel name cover the bottom ~290 px of the frame.
+- **Output:** H.264 CRF 16, AAC 48 kHz, `faststart`. `--dry-run` prints the FFmpeg command without running it.
+- **Subtitles** are added afterwards with `captions.py` (`--margin-v 870` for the split layout).
+- **Upscaling:** Lanczos doesn't add detail. An AI video upscaler (SeedVR2 nodes are built into ComfyUI 0.37; the model isn't downloaded) could be tested later.
 
 ## Not yet built
 
-Captions, the logo, source and end-card overlays, a single `episode` command covering every step, and YouTube upload.
+The logo, source and end-card overlays, article capture (headless Edge at 540 px × 2; manual for now), a single `episode` command covering every step, and YouTube upload.
