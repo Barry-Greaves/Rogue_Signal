@@ -1,0 +1,8 @@
+/* Local DM Sans keeps the article and capture consistent without a font service. */
+.ep002,.ep002 h1,.ep002 h2,.ep002 .eyebrow{font-family:'DM Sans Wordmark','DM Sans',sans-serif}
+.incident-timeline{list-style:none;padding:0;border-top:1px solid var(--line)}
+.incident-timeline li{display:grid;grid-template-columns:145px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-size:18px}
+.incident-timeline time{color:var(--mint);font-weight:600}
+@media(max-width:450px){.incident-timeline li{grid-template-columns:1fr;gap:4px}}
+
+.episode-native{display:block;width:100%;max-width:640px;height:auto;aspect-ratio:1;margin-inline:auto;background:#000;border:1px solid var(--line)}
