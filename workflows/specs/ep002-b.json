@@ -1,0 +1,11 @@
+{
+  "name": "ep002-b",
+  "group": "ep002",
+  "seconds": 15,
+  "seed": 1,
+  "width": 640,
+  "height": 640,
+  "image": "assets/presenter-reference-01-square.png",
+  "line": "The agent was a non-public model carrying out research during an internal evaluation. According to Australia's Prime Minister, it bypassed access blocks. The information accessed included statistics and internal file names.",
+  "prompt": "Photorealistic square 1:1 head-and-shoulders close-up of the woman in <Picture 1>, a news presenter with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt and a small lapel microphone, in a dim graphite studio with a warm amber bulb on the left and a teal light tube on the right. Static locked-off camera at eye level, shallow depth of field. She looks directly into the lens with small natural head movements and occasional blinks. Her hands stay out of frame. She speaks in a clear, warm female voice with a soft British accent, at a calm, measured pace.\n\nTimeline:\n[0s-12s] She says this line exactly once, word for word: \"{line}\"\n[12s-15s] She has finished. She stays silent with her mouth closed, holding a gentle smile and steady eye contact.\n\nShe speaks the line only once, with no extra, repeated or changed words. Quiet studio room tone only: no music, no other voices, no on-screen text, no subtitles."
+}

@@ -34,9 +34,21 @@ def spell(token):
     return [ONES[n]] if n < 20 else [TENS[n // 10]] + ([ONES[n % 10]] if n % 10 else [])
 
 
+def unify_spelling(token):
+    """British and American spellings compare equal: Whisper writes
+    'unauthorized' where the approved script says 'unauthorised'."""
+    return re.sub(r"(?<=\w{3})is(e|ed|es|ing|ation|ations)$", r"iz\1", token)
+
+
+COMPOUNDS = {"under way": "underway", "any more": "anymore", "on to": "onto"}
+
+
 def words(text):
-    tokens = re.findall(r"[a-z0-9']+", text.lower().replace("’", "'").replace("-", " "))
-    return [w for t in tokens for w in spell(t)]
+    text = text.lower().replace("’", "'").replace("-", " ")
+    for spaced, joined in COMPOUNDS.items():  # Whisper often writes these as one word
+        text = re.sub(rf"\b{spaced}\b", joined, text)
+    tokens = re.findall(r"[a-z0-9']+", text)
+    return [unify_spelling(w) for t in tokens for w in spell(t)]
 
 
 def compare(expected, heard):
