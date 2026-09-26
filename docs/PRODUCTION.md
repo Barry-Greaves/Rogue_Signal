@@ -72,3 +72,17 @@ python assemble.py split --clips runs/ep002/a runs/ep002/b runs/ep002/c --panels
 ## Not yet built
 
 The logo, source and end-card overlays, article capture (headless Edge at 540 px × 2; manual for now), a single `episode` command covering every step, and YouTube upload.
+
+## Upscale approved drafts: upscale.py (from Episode 003)
+
+A new H3 render at a higher resolution is a new performance, even with the same seed; on Episode 002 about half the production takes garbled. So instead of re-rendering, render **640×640 drafts**, get each one approved by ear, then upscale it with SeedVR2:
+
+```powershell
+python upscale.py runs/ep003/ep003-a --size 1080 1080
+```
+
+- **Time:** about 6.5 min per 15 s clip on the RTX 5080 (about 10 GB of VRAM).
+- **Same performance:** the words, lip sync and timing are the approved draft's.
+- **Sharpness:** the result is sharper than a native 992×992 render.
+- **Models:** `seedvr2_3b_int8_convrot.safetensors` and `seedvr2_ema_vae_fp16.safetensors` (Comfy-Org/SeedVR2).
+- **Output:** `runs/<group>/<name>-up/`, with the approved line copied into the manifest, so `verify_speech.py` and `captions.py` work on it directly.
