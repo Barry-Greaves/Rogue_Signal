@@ -63,6 +63,12 @@ def compare(expected, heard):
     return edits, errors / max(len(expected), 1)
 
 
+# Whisper often ends the last word early when it trails off ("unacceptable"
+# ran ~0.3 s past its timestamp on three takes), so allow this much before
+# counting speech-level audio as unexplained.
+TAIL_GRACE = 0.5
+
+
 def loud_after(wav_path, after, threshold_db=-30.0, window=0.3):
     """Seconds where speech-level audio continues after the transcript ends.
 
@@ -74,7 +80,7 @@ def loud_after(wav_path, after, threshold_db=-30.0, window=0.3):
         samples = array.array("h", w.readframes(w.getnframes()))
     step = int(rate * window) * channels
     loud = []
-    for i in range(int((after + 0.3) * rate) * channels, len(samples) - step + 1, step):
+    for i in range(int((after + TAIL_GRACE) * rate) * channels, len(samples) - step + 1, step):
         chunk = samples[i:i + step]
         rms = math.sqrt(sum(s * s for s in chunk) / len(chunk)) or 1e-9
         if 20 * math.log10(rms / 32768) > threshold_db:
