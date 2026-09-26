@@ -36,7 +36,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,DM Sans 9pt,64,&H00FFFFFF,&H00FFFFFF,&H99000000,&H66000000,0,0,0,0,100,100,0,0,1,2.2,1.5,2,90,90,500,1
+Style: Sub,DM Sans 9pt,64,&H00FFFFFF,&H00FFFFFF,&H99000000,&H66000000,0,0,0,0,100,100,0,0,1,2.2,1.5,2,90,90,{margin_v},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -117,7 +117,7 @@ def stamp(seconds):
     return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
 
 
-def build_ass(clip_dirs, clip_seconds):
+def build_ass(clip_dirs, clip_seconds, margin_v=500):
     events = []
     for n, folder in enumerate(clip_dirs):
         folder = ROOT / folder
@@ -132,7 +132,7 @@ def build_ass(clip_dirs, clip_seconds):
             text = " ".join(t for t, _, _ in group)
             events.append((start, end, text))
     body = "".join(f"Dialogue: 0,{stamp(s)},{stamp(e)},Sub,,0,0,0,,{t}\n" for s, e, t in events)
-    return ASS_HEADER + body, events
+    return ASS_HEADER.replace("{margin_v}", str(margin_v)) + body, events
 
 
 def main():
@@ -141,9 +141,11 @@ def main():
     parser.add_argument("--video", help="joined 1080x1920 episode to burn captions into")
     parser.add_argument("--out", help="output video (default: <video>-captioned.mp4)")
     parser.add_argument("--clip-seconds", type=float, default=15.0)
+    parser.add_argument("--margin-v", type=int, default=500,
+                        help="caption distance from the bottom edge in px (870 = bottom of a 1080 px top panel)")
     args = parser.parse_args()
 
-    ass, events = build_ass(args.clips, args.clip_seconds)
+    ass, events = build_ass(args.clips, args.clip_seconds, args.margin_v)
     first = (ROOT / args.clips[0]).parent
     ass_path = first / "captions.ass"
     ass_path.write_text(ass, encoding="utf-8")
