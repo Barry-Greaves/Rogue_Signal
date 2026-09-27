@@ -1,0 +1,20 @@
+subject_definitions:
+<Subject 1> is the woman in <Picture 1>, a news presenter with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt and a small lapel microphone.
+<Subject 2> is the dim graphite studio in <Picture 1>, with a warm amber bulb on the left and a teal light tube on the right.
+
+summary:
+[reference generation] A single static head-and-shoulders shot of <Subject 1> in <Subject 2>, delivering one short news line to camera.
+
+retention_analysis:
+<Subject 1> (appears in [Shot 1]): fully_preserved - her face, dark bob, charcoal T-shirt, grey overshirt and lapel microphone are retained.
+<Subject 2> (appears in [Shot 1]): fully_preserved - the graphite studio, amber bulb and teal light tube are retained.
+
+detailed_description:
+The target video uses a photorealistic broadcast style with soft, low-key studio lighting.
+[Shot 1] A static, locked-off square head-and-shoulders close-up at eye level with shallow depth of field frames <Subject 1> (S1) in <Subject 2>. She looks directly into the lens with small natural head movements and occasional blinks; her hands stay out of frame. <Subject 1> (S1) says in a clear, warm female voice with a soft British accent at a calm, measured pace, <d>[English] {line}</d> She then closes her mouth and holds a gentle smile with steady eye contact until the final frame. No on-screen text or subtitles appear.
+
+overall_soundscape:
+Quiet studio room tone continues throughout the video.
+
+non_diegetic_music:
+N/A
