@@ -1,0 +1,12 @@
+{
+  "name": "ep005-b",
+  "group": "ep005",
+  "seconds": 15,
+  "seed": 1,
+  "width": 640,
+  "height": 640,
+  "image": "assets/presenter-reference-04-hands-out.png",
+  "line": "In ComfyUI's test on a top-end graphics card, one round trip through that step fell from about twenty-four seconds to thirteen. They say you most likely won't see a difference.",
+  "prompt": "subject_definitions:\n<Subject 1> is the woman in <Picture 1>, a news presenter standing, seen from the hips up, with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt, dark jeans and a small lapel microphone.\n<Subject 2> is the dim graphite studio in <Picture 1>, with a warm amber bulb and hanging plants on the left, a brown leather armchair in the background, and a teal light tube on the right.\n\nsummary:\n[reference generation] A single static wide medium shot of <Subject 1> in <Subject 2>, delivering one short news line to camera.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - her face, dark bob, charcoal T-shirt, grey overshirt, dark jeans and lapel microphone are retained.\n<Subject 2> (appears in [Shot 1]): fully_preserved - the graphite studio, amber bulb, plants, armchair and teal light tube are retained.\n\ndetailed_description:\nThe target video uses a photorealistic broadcast style with soft, low-key studio lighting.\n[Shot 1] A static, locked-off square wide medium shot at eye level, framed from the hips up as in <Picture 1>, with shallow depth of field, frames <Subject 1> (S1) in <Subject 2>. She looks directly into the lens with small natural head movements and occasional blinks; her arms rest relaxed at her sides and her hands stay below the bottom edge of the frame, never raised into view. <Subject 1> (S1) says in a clear, warm female voice with a soft British accent at a calm, measured pace, <d>[English] {line}</d> She then closes her mouth and holds a gentle smile with steady eye contact until the final frame. No on-screen text or subtitles appear.\n\noverall_soundscape:\nQuiet studio room tone continues throughout the video.\n\nnon_diegetic_music:\nN/A\n",
+  "prompt_template": "wide hands-out variant (workflows/specs/wide-test-04-hands-out.json)"
+}
