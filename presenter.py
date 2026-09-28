@@ -16,6 +16,8 @@ Spec fields (paths are relative to the project folder):
     seconds         clip length; rounded up to H3's 17k+5 frame grid
     width, height   generation size, multiples of 32 (default 480x864)
     turbo           4-step turbo LoRA (default true)
+    style_lora      optional extra LoRA file in ComfyUI's models/loras, applied after turbo
+    style_lora_strength  its strength (default 1.0)
     seed            noise seed (default 1)
     anchor_image    pin the reference image as frame 0 (default true)
     narration       audio anchored as the soundtrack from frame 0 (route B)
@@ -107,6 +109,11 @@ def build_graph(spec, image_name, narration_name=None, voice_name=None):
         g["lora"] = {"class_type": "LoraLoaderModelOnly", "inputs": {
             "model": ["unet", 0], "lora_name": MODELS["turbo_lora"], "strength_model": 1.0}}
         model = ["lora", 0]
+    if spec.get("style_lora"):
+        g["style_lora"] = {"class_type": "LoraLoaderModelOnly", "inputs": {
+            "model": model, "lora_name": spec["style_lora"],
+            "strength_model": float(spec.get("style_lora_strength", 1.0))}}
+        model = ["style_lora", 0]
     if voice_name:
         g["voice"] = {"class_type": "LoadAudio", "inputs": {"audio": voice_name}}
         g["r2v"]["inputs"]["ref_audios.ref_audio_0"] = ["voice", 0]

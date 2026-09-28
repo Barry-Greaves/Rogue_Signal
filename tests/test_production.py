@@ -60,6 +60,11 @@ class SpeechCheckTests(unittest.TestCase):
         self.assertEqual(verify_speech.words("30 seconds"), verify_speech.words("thirty seconds"))
         self.assertEqual(verify_speech.words("I'm 21"), ["i'm", "twenty", "one"])
 
+    def test_misheard_product_names_match(self):
+        expected = verify_speech.words("In ComfyUI's test")
+        for heard in ("In ComforUI's test", "In Comfy UI's test", "In ComfyUI's test"):
+            self.assertEqual(verify_speech.words(heard), expected)
+
     def test_repeat_and_substitution_are_reported(self):
         expected = verify_speech.words("This is a test.")
         edits, rate = verify_speech.compare(expected, verify_speech.words("This is a test. This is a test."))

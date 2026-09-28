@@ -86,3 +86,18 @@ python upscale.py runs/ep003/ep003-a --size 1080 1080
 - **Sharpness:** the result is sharper than a native 992×992 render.
 - **Models:** `seedvr2_3b_int8_convrot.safetensors` and `seedvr2_ema_vae_fp16.safetensors` (Comfy-Org/SeedVR2).
 - **Output:** `runs/<group>/<name>-up/`, with the approved line copied into the manifest, so `verify_speech.py` and `captions.py` work on it directly.
+
+## Finish upscaled clips: finish.py (from Episode 005)
+
+SeedVR2 over-sharpens skin, so freckles and pores look etched. `finish.py` fixes that and adds a camera-and-room feel, without touching the performance:
+
+```powershell
+python finish.py runs/ep005/ep005-a-up            # -> runs/ep005/ep005-a-fin/
+python finish.py runs/ep005/ep005-a-up --blend 0.7
+```
+
+- **Blend:** 60% SeedVR2 output and 40% a plain Lanczos upscale of the same approved draft (Barry's choice, 28 Sep). The eyes stay crisp and the skin softens.
+- **Picture:** lifted blacks, softened highlights, 6% less saturation, a light vignette, and fine grain that changes every frame.
+- **Sound:** a low cut at 85 Hz, a little warmth, softer sibilance, and three short room reflections. The level stays within 0.1 dB of the source.
+- **Time:** about 1 min per clip, on the CPU, with no ComfyUI and no GPU load.
+- **Order per clip:** draft → Barry's listen → `upscale.py` → `finish.py` → `verify_speech.py` on the `-fin` folder (captions need its word timings). Then assemble and caption the `-fin` folders.

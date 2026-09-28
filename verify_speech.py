@@ -41,12 +41,17 @@ def unify_spelling(token):
 
 
 COMPOUNDS = {"under way": "underway", "any more": "anymore", "on to": "onto"}
+# Product names Whisper mishears even when they're said correctly (Barry
+# confirmed "ComfyUI" by ear on Episode 005; Whisper wrote "ComforUI").
+NAMES = {r"comf(?:y|or|er)\s?u\s?i": "comfyui"}
 
 
 def words(text):
     text = text.lower().replace("’", "'").replace("-", " ")
     for spaced, joined in COMPOUNDS.items():  # Whisper often writes these as one word
         text = re.sub(rf"\b{spaced}\b", joined, text)
+    for pattern, name in NAMES.items():
+        text = re.sub(rf"\b{pattern}", name, text)
     tokens = re.findall(r"[a-z0-9']+", text)
     return [unify_spelling(w) for t in tokens for w in spell(t)]
 
