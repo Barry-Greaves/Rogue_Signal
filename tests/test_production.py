@@ -64,6 +64,7 @@ class SpeechCheckTests(unittest.TestCase):
         expected = verify_speech.words("In ComfyUI's test")
         for heard in ("In ComforUI's test", "In Comfy UI's test", "In ComfyUI's test"):
             self.assertEqual(verify_speech.words(heard), expected)
+        self.assertEqual(verify_speech.words("NVIDIA's DLSS5"), verify_speech.words("NVIDIA's DLSS 5"))
 
     def test_repeat_and_substitution_are_reported(self):
         expected = verify_speech.words("This is a test.")

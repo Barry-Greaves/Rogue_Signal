@@ -1,0 +1,12 @@
+{
+  "name": "ep006-a",
+  "group": "ep006",
+  "seconds": 15,
+  "seed": 1,
+  "width": 640,
+  "height": 640,
+  "image": "assets/presenter-reference-01-square.png",
+  "line": "NVIDIA's DLSS 5 promises photoreal lighting and materials in games. It isn't in Cyberpunk officially, but modders have added it anyway. So does it make the game better, or just different?",
+  "prompt": "subject_definitions:\n<Subject 1> is the woman in <Picture 1>, a news presenter with a dark shoulder-length bob, natural skin texture, a charcoal crew-neck T-shirt, an open grey overshirt and a small lapel microphone.\n<Subject 2> is the dim graphite studio in <Picture 1>, with a warm amber bulb on the left and a teal light tube on the right.\n\nsummary:\n[reference generation] A single static head-and-shoulders shot of <Subject 1> in <Subject 2>, delivering one short news line to camera.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - her face, dark bob, charcoal T-shirt, grey overshirt and lapel microphone are retained.\n<Subject 2> (appears in [Shot 1]): fully_preserved - the graphite studio, amber bulb and teal light tube are retained.\n\ndetailed_description:\nThe target video uses a photorealistic broadcast style with soft, low-key studio lighting.\n[Shot 1] A static, locked-off square head-and-shoulders close-up at eye level with shallow depth of field frames <Subject 1> (S1) in <Subject 2>. She looks directly into the lens with small natural head movements and occasional blinks; her hands stay out of frame. <Subject 1> (S1) says in a clear, warm female voice with a soft British accent at a calm, measured pace, <d>[English] {line}</d> She then closes her mouth and holds a gentle smile with steady eye contact until the final frame. No on-screen text or subtitles appear.\n\noverall_soundscape:\nQuiet studio room tone continues throughout the video.\n\nnon_diegetic_music:\nN/A\n",
+  "prompt_template": "workflows/prompts/rogue_ref2va_official.txt"
+}

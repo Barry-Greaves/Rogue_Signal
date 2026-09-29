@@ -43,7 +43,8 @@ def unify_spelling(token):
 COMPOUNDS = {"under way": "underway", "any more": "anymore", "on to": "onto"}
 # Product names Whisper mishears even when they're said correctly (Barry
 # confirmed "ComfyUI" by ear on Episode 005; Whisper wrote "ComforUI").
-NAMES = {r"comf(?:y|or|er)\s?u\s?i": "comfyui"}
+NAMES = {r"comf(?:y|or|er)\s?u\s?i": "comfyui",
+         r"dlss(?=\d)": "dlss "}  # Whisper writes "DLSS5" for "DLSS 5"
 
 
 def words(text):
